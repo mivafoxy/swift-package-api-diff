@@ -29,14 +29,6 @@ let package = Package(
                              package: "Files"),
                     .product(name: "SwiftPM-auto",
                              package: "SwiftPM"),
-                ]),
-        .testTarget(name: "swift-package-api-diff-tests",
-                    dependencies: [
-                        "swift-package-api-diff",
-                        .product(name: "Files",
-                                 package: "Files"),
-                        .product(name: "SwiftPM-auto",
-                                 package: "SwiftPM"),
-                    ]),
+                ], path: "Sources")
     ]
 )
