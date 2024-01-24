@@ -5,26 +5,26 @@ import TSCBasic
 
 public struct SwiftPackageAPIDiff: ParsableCommand {
     
-    enum Error: Swift.Error {
+    public enum Error: Swift.Error {
         case optionsValidationFailed
         case nonZeroExit(code: Int32)
         case signalExit(signal: Int32)
     }
     
-    struct Report: CustomStringConvertible {
+    public struct Report: CustomStringConvertible {
 
-        enum ChangesType: String {
+        public enum ChangesType: String {
             case breaking
             case nonBreaking = "non-breaking"
         }
 
-        var changesType: ChangesType {
+        public var changesType: ChangesType {
             Self.keyPaths
                 .filter { $0 != \.addedDeclarations }
                 .allSatisfy { self[keyPath: $0].isEmpty } ? .nonBreaking : .breaking
         }
 
-        var description: String {
+        public var description: String {
             var description = Self.map
                                   .mapValues { self[keyPath: $0] }
                                   .filter { !$0.value.isEmpty }
@@ -49,7 +49,7 @@ public struct SwiftPackageAPIDiff: ParsableCommand {
         private(set) var classInheritanceChanges: [String] = []
         private(set) var otherChanges: [String] = []
 
-        init(reportFile: File, reversedReportFile: File) throws {
+        public init(reportFile: File, reversedReportFile: File) throws {
             try self.init(reportFile: reportFile)
             let reversedReport = try Report(reportFile: reversedReportFile)
             self.addedDeclarations += reversedReport.removedDeclarations.map {
@@ -259,7 +259,7 @@ public struct SwiftPackageAPIDiff: ParsableCommand {
                          reversedReportFile: reversedReportFile)
     }
 
-    static var configuration = CommandConfiguration(
+    public static var configuration = CommandConfiguration(
         abstract: "A utility for autoversioning of Swift Packages.",
         subcommands: [APIChangesType.self, APIChangesDescription.self],
         defaultSubcommand: APIChangesType.self
