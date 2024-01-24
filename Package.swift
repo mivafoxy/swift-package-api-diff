@@ -8,7 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "SwiftPackageApiDiff",
-            targets: ["swift-package-api-diff"]
+            targets: ["SwiftPackageApiDiff"]
         )
     ],
     dependencies: [
