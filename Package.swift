@@ -9,7 +9,7 @@ let package = Package(
         .executable(name: "swift-package-api-diff",
                     targets: ["swift-package-api-diff"]),
         .library(
-            name: "swift-package-api-diff",
+            name: "swiftPackageApiDiff",
             targets: ["swift-package-api-diff"]
         )
     ],
