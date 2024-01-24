@@ -6,8 +6,6 @@ let package = Package(
     name: "swift-package-api-diff",
     platforms: [.macOS(.v10_15)],
     products: [
-        .executable(name: "swift-package-api-diff",
-                    targets: ["swift-package-api-diff"]),
         .library(
             name: "swiftPackageApiDiff",
             targets: ["swift-package-api-diff"]
