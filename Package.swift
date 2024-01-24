@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git",
-                 .exact("0.3.2")),
+                 from: ("1.0.1")),
         .package(name: "SwiftPM",
                  url: "https://github.com/apple/swift-package-manager.git",
                  .branch("7b898e6cad75a3c096ad947508eb948ad5f614d4")),
