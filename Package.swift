@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-package-api-diff",
+    name: "SwiftPackageApiDiff",
     platforms: [.macOS("10.15.4")],
     products: [
         .library(
-            name: "swiftPackageApiDiff",
+            name: "SwiftPackageApiDiff",
             targets: ["swift-package-api-diff"]
         )
     ],
@@ -21,7 +21,7 @@ let package = Package(
                  from: "4.0.2")
     ],
     targets: [
-        .target(name: "swift-package-api-diff",
+        .target(name: "SwiftPackageApiDiff",
                 dependencies: [
                     .product(name: "ArgumentParser",
                              package: "swift-argument-parser"),
