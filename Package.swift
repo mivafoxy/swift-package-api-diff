@@ -14,7 +14,7 @@ let package = Package(
                  .exact("0.3.2")),
         .package(name: "SwiftPM",
                  url: "https://github.com/apple/swift-package-manager.git",
-                 .revision("swift-5.4.2-RELEASE")),
+                 .branch("7b898e6cad75a3c096ad947508eb948ad5f614d4")),
         .package(url: "https://github.com/JohnSundell/Files",
                  from: "4.0.2")
     ],
