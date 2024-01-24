@@ -3,7 +3,7 @@ import ArgumentParser
 import Files
 import TSCBasic
 
-struct SwiftPackageAPIDiff: ParsableCommand {
+public struct SwiftPackageAPIDiff: ParsableCommand {
     
     enum Error: Swift.Error {
         case optionsValidationFailed
