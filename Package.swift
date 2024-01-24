@@ -7,7 +7,11 @@ let package = Package(
     platforms: [.macOS(.v10_15)],
     products: [
         .executable(name: "swift-package-api-diff",
-                    targets: ["swift-package-api-diff"])
+                    targets: ["swift-package-api-diff"]),
+        .library(
+            name: "swift-package-api-diff",
+            targets: ["swift-package-api-diff"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git",
