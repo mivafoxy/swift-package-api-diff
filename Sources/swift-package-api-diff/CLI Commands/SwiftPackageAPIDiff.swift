@@ -5,6 +5,8 @@ import TSCBasic
 
 public struct SwiftPackageAPIDiff: ParsableCommand {
     
+    public init() {}
+    
     public enum Error: Swift.Error {
         case optionsValidationFailed
         case nonZeroExit(code: Int32)
@@ -57,7 +59,9 @@ public struct SwiftPackageAPIDiff: ParsableCommand {
             }
         }
         
-        private init(reportFile: File) throws {
+        public init() {}
+        
+        public init(reportFile: File) throws {
             let rawString = try String(contentsOf: reportFile.url,
                                        encoding: .utf8)
             let components = rawString.components(separatedBy: .newlines)
@@ -129,6 +133,22 @@ public struct SwiftPackageAPIDiff: ParsableCommand {
         @Flag(name: .shortAndLong,
               help: "Print diagnostic messages.")
         var verbose: Bool = false
+        
+        public init(
+            oldPackage: String,
+            newPackage:String,
+            module: String,
+            xcodePath: String,
+            verbose: Bool
+        ) {
+            self.oldPackage = oldPackage
+            self.newPackage = newPackage
+            self.module = module
+            self.xcodePath = xcodePath
+            self.verbose = verbose
+        }
+        
+        public init() { }
     }
     
     public static func validateOptions(_ options: Options) throws {
