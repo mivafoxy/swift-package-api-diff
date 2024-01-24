@@ -109,7 +109,7 @@ struct SwiftPackageAPIDiff: ParsableCommand {
         ]
     }
 
-    struct Options: ParsableArguments {
+    public struct Options: ParsableArguments {
         @Option(name: .shortAndLong,
                 help: "Old Package Path.")
         var oldPackage: String
@@ -131,7 +131,7 @@ struct SwiftPackageAPIDiff: ParsableCommand {
         var verbose: Bool = false
     }
     
-    static func validateOptions(_ options: Options) throws {
+    public static func validateOptions(_ options: Options) throws {
         guard !options.module.isEmpty,
               (try? Folder(path: options.oldPackage).containsFile(named: "Package.swift")) ?? false,
               (try? Folder(path: options.newPackage).containsFile(named: "Package.swift")) ?? false
@@ -139,7 +139,7 @@ struct SwiftPackageAPIDiff: ParsableCommand {
     }
 
     // TODO: add target sdk check
-    static func comparePackages(options: Options) throws -> Report {
+    public static func comparePackages(options: Options) throws -> Report {
         let sdkPath = options.xcodePath.appendingPathComponent("Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/")
         let binPath = options.xcodePath.appendingPathComponent("Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/")
         let compilerPath = binPath.appendingPathComponent("swiftc")
